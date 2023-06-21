@@ -1,0 +1,71 @@
+<configuration>
+
+    <shutdownHook/>
+
+    <!-- Properties & Resources -->
+    <property resource="config.properties" /> <!-- Pull in properties defined in "config.properties" -->
+    <!--
+    NOTE: The "execution_log_dir" & "execution_log_filepath" properties referenced in this file get
+    set dynamically by LogFactory#setLogDirectory
+    -->
+
+    <!--
+    Due to the nature of how "logback-classic" behaves, in order to allow some capacity for capturing logs
+    before LogFactory#setLogDirectory is implicitly called in Hooks#initializeTest, this log has been configured
+    to only append logs to the system console until this LogFactory#setLogDirectory call has been made, where at
+    which point logs will proceed to be appended into both the console and into an output file (see config below).
+
+    More specifically, with the way that this project is currently configured, this means that the majority of Log
+    statements declared in TestConfig which get enacted at the start of a project build  will only be displayed in
+    the console, NOT in the log file.
+    -->
+
+    <!-- If 'execution_log_dir' property has been defined, log to file and console -->
+    <if condition='isDefined("execution_log_dir")'>
+        <then>
+
+            <!-- File Log -->
+            <appender name="FILE_OUT" class="ch.qos.logback.core.FileAppender">
+                <file>${execution_log_filepath}</file>
+                <!-- set immediateFlush to false for much higher logging throughput -->
+                <immediateFlush>true</immediateFlush>
+                <encoder>
+                    <pattern>%-30([%date{dd-MM-yyyy'T'HH:mm:ss.SSS} | %t]) %-10.10level %m%n%ex</pattern>
+                    <outputPatternAsHeader>true</outputPatternAsHeader>
+                </encoder>
+            </appender>
+
+            <!-- Console Log -->
+            <appender name="CONSOLE_OUT" class="ch.qos.logback.core.ConsoleAppender">
+                <encoder>
+                    <pattern>%-30(%white([%date{dd-MM-yyyy'T'HH:mm:ss.SSS} | %t])) %highlight(%-10.10level %m%n%ex)</pattern>
+                </encoder>
+            </appender>
+
+            <!-- Configure Log Outputs for Log Levels -->
+            <root level="INFO">
+                <appender-ref ref="CONSOLE_OUT" /> <!-- INFO logs will appear in console -->
+                <appender-ref ref="FILE_OUT" /> <!-- INFO logs will be appended to file in execution report -->
+            </root>
+
+        </then>
+
+        <!-- Else, if 'execution_log_dir' property IS NOT defined, only log to console -->
+        <else>
+
+            <!-- Console Log -->
+            <appender name="CONSOLE_OUT" class="ch.qos.logback.core.ConsoleAppender">
+                <encoder>
+                    <pattern>%-30(%white([%date{dd-MM-yyyy'T'HH:mm:ss.SSS} | %t])) %highlight(%-10.10level %m%n%ex)</pattern>
+                </encoder>
+            </appender>
+
+            <!-- Configure Log Outputs for Log Levels -->
+            <root level="INFO">
+                <appender-ref ref="CONSOLE_OUT" /> <!-- INFO log will appear in console -->
+            </root>
+
+        </else>
+    </if>
+
+</configuration>

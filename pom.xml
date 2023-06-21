@@ -1,0 +1,283 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.ImperialSearchConsulting.pcp</groupId>
+	<artifactId>Salesforce-automation</artifactId>
+	<version>2.13.0</version>
+	<packaging>jar</packaging>
+	<name>Salesforce Automation</name>
+	<description>
+		Salesforce is a front-end user interface application.
+	</description>
+	<url>https://login.salesforce.com/</url>
+	<licenses>
+		<license>
+			<name>Salesforce License</name>
+			<url>https://login.salesforce.com/</url>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<name>Femi Adeyinka</name>
+			<email>Femi.Adeyinka@outlook.com</email>
+			<organization>ImperialSearchConsulting</organization>
+			<organizationUrl>https://login.salesforce.com/</organizationUrl>
+		</developer>
+	</developers>
+	<contributors>
+		<contributor>
+			<!-- ...Additional Project Contributors to be placed here... -->
+		</contributor>
+	</contributors>
+	<properties>
+		<!-- ========================Maven Build Properties======================== -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>18</java.version>
+		<maven-compiler.version>3.8.1</maven-compiler.version>
+		<maven-compiler.source>${java.version}</maven-compiler.source>
+		<maven-compiler.target>${java.version}</maven-compiler.target>
+		<maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
+		<maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
+		<maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
+		<maven.build.timestamp.format>dd-MM-yyyy'T'HH_mm_ssz</maven.build.timestamp.format>
+		<maven.execution.start.timestamp>${maven.build.timestamp}</maven.execution.start.timestamp>
+		<!-- ========================Dependency Properties======================== -->
+		<logback-classic.version>1.4.1</logback-classic.version>
+		<janino.version>3.1.8</janino.version>
+		<lombok.version>1.18.24</lombok.version>
+		<cucumber-java.version>7.8.1</cucumber-java.version>
+		<cucumber-testng.version>7.8.1</cucumber-testng.version>
+		<!-- <webdrivermanager.version>5.3.0</webdrivermanager.version> -->
+		<selenium.version>4.5.0</selenium.version>
+		<selenium-remote.version>4.5.0</selenium-remote.version>
+		<commons-io.version>2.11.0</commons-io.version>
+		<commons-lang3.version>3.12.0</commons-lang3.version>
+		<commons-configuration2.version>2.8.0</commons-configuration2.version>
+		<commons-beanutils.version>1.9.4</commons-beanutils.version>
+		<testng.version>6.11</testng.version>
+		<extentreports.version>5.0.9</extentreports.version>
+		<annotations.version>23.0.0</annotations.version>
+	</properties>
+	<!-- ========================Project Dependencies======================== -->
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback-classic.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.codehaus.janino/janino -->
+		<dependency>
+			<groupId>org.codehaus.janino</groupId>
+			<artifactId>janino</artifactId>
+			<version>${janino.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${cucumber-java.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>${cucumber-testng.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<!-- <dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>${webdrivermanager.version}</version>
+			<scope>test</scope>
+		</dependency> -->
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-remote-driver</artifactId>
+			<version>${selenium-remote.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-configuration2 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-configuration2</artifactId>
+			<version>${commons-configuration2.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${commons-beanutils.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${extentreports.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.jetbrains/annotations -->
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>${annotations.version}</version>
+			<scope>test</scope>
+        </dependency>
+    </dependencies>
+	<!-- ========================Transitive Dependency Management======================== -->
+	<dependencyManagement>
+		<dependencies>
+			<!--
+			 Require this specific gson artifact version to override the version of the
+			 underlying/transitive gson artifact used within the extentreports dependency
+			 (referenced above in the project's dependencies), due to existence of CVE-2022-25647
+			 within v5.0.9 of extentreports artifact.
+			-->
+			<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>2.9.1</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<build>
+		<!-- ========================Test Resources======================== -->
+		<testResources>
+			<testResource>
+				<directory>${basedir}/src/test/resources/configs</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>*.properties</include>
+				</includes>
+			</testResource>
+			<testResource>
+				<directory>${basedir}/src/test/resources/configs/log</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>*.xml</include>
+				</includes>
+			</testResource>
+			<testResource>
+				<filtering>false</filtering>
+				<directory>${basedir}/src/test/resources/configs/report</directory>
+			</testResource>
+		</testResources>
+		<!-- ========================Plugins======================== -->
+		<plugins>
+			<!-- Compile all sources for this project with the specified JDK (i.e. source) and JVM (i.e. target) versions -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler.version}</version>
+                <configuration>
+                    <source>${maven-compiler.source}</source>
+                    <target>${maven-compiler.target}</target>
+                </configuration>
+			</plugin>
+			<!-- Copies the testResources (specified above) to the output (i.e. target) directory -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven-resources-plugin.version}</version>
+			</plugin>
+			<!-- Create copies of each project dependency and save in target/libs -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>${maven-dependency-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/libs</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Produce JAR which includes test-classes (i.e. all class/.java files under src/test/java) -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven-jar-plugin.version}</version>
+				<configuration>
+					<archive>
+						<index>true</index>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>libs/</classpathPrefix>
+							<mainClass>utility.AESUtil</mainClass>
+						</manifest>
+					</archive>
+					<!--
+					Configure the name of the JAR file (because this JAR is most likely going to be used for
+					performing encryption and uses AESUtil class as its entry point, this JAR file is named
+					accordingly)
+					-->
+					<finalName>password_encryption</finalName>
+				</configuration>
+				<executions>
+					<!-- Skip creating the default JAR file -->
+					<execution>
+						<id>default-jar</id>
+						<phase>none</phase>
+					</execution>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

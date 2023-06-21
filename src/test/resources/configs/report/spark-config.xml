@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+	<configuration>
+		<!-- Report Theme (standard | dark) -->
+		<theme>STANDARD</theme>
+
+		<!-- Report Encoding -->
+		<encoding>UTF-8</encoding>
+
+		<!-- Protocol (HTTP | HTTPS) -->
+		<protocol>https</protocol>
+
+		<!-- Offline Report -->
+		<enableOfflineMode>false</enableOfflineMode>
+
+		<!-- Title of document -->
+		<documentTitle>IDRS Automation Framework</documentTitle>
+
+		<!-- Report name (displayed in top-nav of the page) -->
+		<reportName>SAS VI Automation</reportName>
+
+		<!-- timestamp format -->
+		<timeStampFormat>dd-MM-yyyy HH:mm:ss.SSS</timeStampFormat>
+
+		<!-- Javascript -->
+		<js></js>
+
+		<!-- Styles -->
+		<styles></styles>
+	</configuration>
+</extentreports>
